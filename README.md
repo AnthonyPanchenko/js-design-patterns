@@ -2,29 +2,17 @@
 JavaScript Design Patterns
 
 | [Module][module-js]           |
-| ----------------------------- |
 | [Constructor][constructor-js] |
-| ----------------------------- |
 | [Singleton][singleton-js]     |
-| ----------------------------- |
 | [Observer][observer-js]       |
-| ----------------------------- |
 | [Mediator][mediator-js]       |
-| ----------------------------- |
 | [Prototype][prototype-js]     |
-| ----------------------------- |
 | [Command][command-js]         |
-| ----------------------------- |
 | [Facade][facade-js]           |
-| ----------------------------- |
 | [Factory][factory-js]         |
-| ----------------------------- |
 | [Mixin][mixin-js]             |
-| ----------------------------- |
 | [Decorator][decorator-js]     |
-| ----------------------------- |
 | [Flyweight][flyweight-js]     |
-| ----------------------------- |
 
 [module-js]:      patterns/module.js
 [constructor-js]: patterns/constructor.js
