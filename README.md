@@ -1,6 +1,8 @@
 # js-design-patterns
-JavaScript Design Patterns
 
+
+|  JavaScript Design Patterns   |
+| ----------------------------- |
 | [Module][module-js]           |
 | [Constructor][constructor-js] |
 | [Singleton][singleton-js]     |
