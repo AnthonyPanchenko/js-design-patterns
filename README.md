@@ -1,6 +1,5 @@
 # js-design-patterns
 
-
 |  JavaScript Design Patterns   |
 | ----------------------------- |
 | [Module][module-js]           |
