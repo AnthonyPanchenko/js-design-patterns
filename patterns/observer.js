@@ -1,4 +1,4 @@
-function Observable() {
+function Observer() {
     this.subscribers = {};
 
     this.subscribe = function (type, fn) {
@@ -24,7 +24,7 @@ function Observable() {
 };
 
 // create instance
-var evtMan = new Observable();
+var evtMan = new Observer();
 
 // some listeners
 function fooOne(evt) {
