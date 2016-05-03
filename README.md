@@ -12,6 +12,7 @@
 | [Facade][facade-js]           |
 | [Factory][factory-js]         |
 | [Mixin][mixin-js]             |
+| [Proxy][proxy-js]             |
 | [Decorator][decorator-js]     |
 | [Flyweight][flyweight-js]     |
 
@@ -25,5 +26,6 @@
 [facade-js]:      patterns/facade.js
 [factory-js]:     patterns/factory.js
 [mixin-js]:       patterns/mixin.js
+[proxy-js]:   patterns/proxy.js
 [decorator-js]:   patterns/decorator.js
 [flyweight-js]:   patterns/flyweight.js
