@@ -34,7 +34,7 @@ var mediator = (function () {
         unsubscribe: unsubscribe
     };
 
-} ());
+})();
 
 function someSubscriber(name) {
     console.log(this.name);
@@ -50,4 +50,4 @@ mediator.publish('changeName', 'David'); // new name
 
 setTimeout(function () {
     mediator.publish('changeName', 'Bob'); // new name
-}, 3000);
+}, 1000);
