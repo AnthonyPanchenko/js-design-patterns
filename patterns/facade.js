@@ -19,6 +19,6 @@ var patternFacade = (function () {
             _private.init();
         }
     }
-} ());
+})();
 
 patternFacade.facade({ key: 'item-1', val: 5 });
