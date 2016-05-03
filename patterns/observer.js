@@ -45,4 +45,4 @@ evtMan.publish('someEvent', { mess: 'Hello !' });
 
 setTimeout(function () {
     evtMan.publish('someEvent', { mess: 'Hello TWO!' });
-}, 3000);
+}, 1000);
