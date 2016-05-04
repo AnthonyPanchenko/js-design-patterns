@@ -1,125 +1,65 @@
-// Simulate pure virtual inheritance/"implement" keyword for JS
-Function.prototype.implementsFor = function (parentClassOrObject) {
-    if (parentClassOrObject.constructor === Function) {
-        // Normal Inheritance
-        this.prototype = new parentClassOrObject();
-        this.prototype.constructor = this;
-        this.prototype.parent = parentClassOrObject.prototype;
-    }
-    else {
-        // Pure Virtual Inheritance
-        this.prototype = parentClassOrObject;
-        this.prototype.constructor = this;
-        this.prototype.parent = parentClassOrObject;
-    }
-    return this;
+function Flyweight(make, model, processor) {
+    this.make = make;
+    this.model = model;
+    this.processor = processor;
 };
 
-// Flyweight object
-var CoffeeOrder = {
-    // Interfaces
-    serveCoffee: function (context) { },
-    getFlavor: function () { }
-
-};
-
-// ConcreteFlyweight object that creates ConcreteFlyweight
-// Implements CoffeeOrder
-function CoffeeFlavor(newFlavor) {
-
-    var flavor = newFlavor;
-
-    // If an interface has been defined for a feature
-    // implement the feature
-    if (typeof this.getFlavor === "function") {
-        this.getFlavor = function () {
-            return flavor;
-        };
-    }
-
-    if (typeof this.serveCoffee === "function") {
-        this.serveCoffee = function (context) {
-            console.log("Serving Coffee flavor "
-                + flavor
-                + " to table number "
-                + context.getTable());
-        };
-    }
-}
-
-// Implement interface for CoffeeOrder
-CoffeeFlavor.implementsFor(CoffeeOrder);
-
-
-// Handle table numbers for a coffee order
-function CoffeeOrderContext(tableNumber) {
-    return {
-        getTable: function () {
-            return tableNumber;
-        }
-    };
-}
-
-function CoffeeFlavorFactory() {
-    var flavors = {},
-        length = 0;
+var FlyWeightFactory = (function () {
+    var flyweights = {};
 
     return {
-        getCoffeeFlavor: function (flavorName) {
-
-            var flavor = flavors[flavorName];
-            if (typeof flavor === "undefined") {
-                flavor = new CoffeeFlavor(flavorName);
-                flavors[flavorName] = flavor;
-                length++;
-            }
-            return flavor;
+        get: function (make, model, processor) {
+            if (!flyweights[make + model])
+                flyweights[make + model] = new Flyweight(make, model, processor);
+            return flyweights[make + model];
         },
 
-        getTotalCoffeeFlavorsMade: function () {
-            return length;
+        getCount: function () {
+            var count = 0;
+            for (var f in flyweights) count++;
+            return count;
         }
-    };
-}
+    }
+})();
 
-// Sample usage:
-// The flavors ordered.
-var flavors = new CoffeeFlavor(),
-    // The tables for the orders.
-    tables = new CoffeeOrderContext(),
+function Computer(make, model, processor, memory, tag) {
+    this.flyweight = FlyWeightFactory.get(make, model, processor);
+    this.memory = memory;
+    this.tag = tag;
+    this.getMake = function () {
+        return this.flyweight.make;
+    }
+};
 
-    // Number of orders made
-    ordersMade = 0,
+function ComputerCollection() {
+    var computers = {};
+    var count = 0;
 
-    // The CoffeeFlavorFactory instance
-    flavorFactory;
+    return {
+        add: function (make, model, processor, memory, tag) {
+            computers[tag] = new Computer(make, model, processor, memory, tag);
+            count++;
+        },
 
-function takeOrders(flavorIn, table) {
-    flavors[ordersMade] = flavorFactory.getCoffeeFlavor(flavorIn);
-    tables[ordersMade++] = new CoffeeOrderContext(table);
-}
+        get: function (tag) {
+            return computers[tag];
+        },
 
-flavorFactory = new CoffeeFlavorFactory();
+        getCount: function () {
+            return count;
+        }
+    }
+};
 
-takeOrders("Cappuccino", 2);
-takeOrders("Cappuccino", 2);
-takeOrders("Frappe", 1);
-takeOrders("Frappe", 1);
-takeOrders("Xpresso", 1);
-takeOrders("Frappe", 897);
-takeOrders("Cappuccino", 97);
-takeOrders("Cappuccino", 97);
-takeOrders("Frappe", 3);
-takeOrders("Xpresso", 3);
-takeOrders("Cappuccino", 3);
-takeOrders("Xpresso", 96);
-takeOrders("Frappe", 552);
-takeOrders("Cappuccino", 121);
-takeOrders("Xpresso", 121);
+var computers = new ComputerCollection();
 
-for (var i = 0; i < ordersMade; ++i) {
-    flavors[i].serveCoffee(tables[i]);
-}
+computers.add("Dell", "Studio XPS", "Intel", "5G", "Y755P");
+computers.add("Dell", "Studio XPS", "Intel", "6G", "X997T");
+computers.add("Dell", "Studio XPS", "Intel", "2G", "U8U80");
+computers.add("Dell", "Studio XPS", "Intel", "2G", "NT777");
+computers.add("Dell", "Studio XPS", "Intel", "2G", "0J88A");
+computers.add("HP", "Envy", "Intel", "4G", "CNU883701");
+computers.add("HP", "Envy", "Intel", "2G", "TXU003283");
 
-console.log(" ");
-console.log("total CoffeeFlavor objects made: " + flavorFactory.getTotalCoffeeFlavorsMade());
+console.log("Computers: " + computers.getCount());
+console.log("Flyweights: " + FlyWeightFactory.getCount());
