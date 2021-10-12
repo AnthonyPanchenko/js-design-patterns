@@ -1,33 +1,51 @@
 # js-design-patterns
+JavaScript Design Patterns
 
-|  JavaScript Design Patterns   |
-| ----------------------------- |
-| [Module][module-js]           |
-| [Constructor][constructor-js] |
-| [Singleton][singleton-js]     |
-| [Observer][observer-js]       |
-| [Mediator][mediator-js]       |
-| [Prototype][prototype-js]     |
-| [Command][command-js]         |
-| [Facade][facade-js]           |
-| [Factory][factory-js]         |
-| [Mixin][mixin-js]             |
-| [Proxy][proxy-js]             |
-| [State][state-js]             |
-| [Decorator][decorator-js]     |
-| [Flyweight][flyweight-js]     |
+### --- Creational ---
+|          Description          |       Implementations      |
+| ----------------------------- | -------------------------- |
+|                               | [Module][module]           |
+|                               | [Constructor][constructor] |
+|                               | [Singleton][singleton]     |
+|                               | [Prototype][prototype]     |
+|                               | [Facade][facade]           |
+|                               | [Factory][factory]         |
+|                               | [Mixin][mixin]             |
 
-[module-js]:      patterns/module.js
-[constructor-js]: patterns/constructor.js
-[singleton-js]:   patterns/singleton.js
-[observer-js]:    patterns/observer.js
-[mediator-js]:    patterns/mediator.js
-[prototype-js]:   patterns/prototype.js
-[command-js]:     patterns/command.js
-[facade-js]:      patterns/facade.js
-[factory-js]:     patterns/factory.js
-[mixin-js]:       patterns/mixin.js
-[proxy-js]:       patterns/proxy.js
-[state-js]:       patterns/state.js
-[decorator-js]:   patterns/decorator.js
-[flyweight-js]:   patterns/flyweight.js
+### --- Structural ---
+|          Description          |       Implementations      |
+| ----------------------------- | -------------------------- |
+|                               | [Mediator][mediator]       |
+|                               | [Facade][facade]           |
+|                               | [Mixin][mixin]             |
+|                               | [Proxy][proxy]             |
+|                               | [Decorator][decorator]     |
+|                               | [Flyweight][flyweight]     |
+### --- Behaviour ---
+|          Description          |       Implementations      |
+| ----------------------------- | -------------------------- |
+|                               | [Observer][observer]       |
+|                               | [Mediator][mediator]       |
+|                               | [Command][command]         |
+|                               | [Mixin][mixin]             |
+|                               | [Proxy][proxy]             |
+|                               | [State][state]             |
+
+![Design patterns](./patterns.png)
+
+[module]:      patterns/module.js
+[constructor]: patterns/constructor.js
+[singleton]:   patterns/singleton.js
+[observer]:    patterns/observer.js
+[mediator]:    patterns/mediator.js
+[prototype]:   patterns/prototype.js
+[command]:     patterns/command.js
+[facade]:      patterns/facade.js
+[factory]:     patterns/factory.js
+[mixin]:       patterns/mixin.js
+[proxy]:       patterns/proxy.js
+[state]:       patterns/state.js
+[decorator]:   patterns/decorator.js
+[flyweight]:   patterns/flyweight.js
+
+https://www.dofactory.com/javascript/design-patterns/abstract-factory
