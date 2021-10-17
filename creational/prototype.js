@@ -32,3 +32,20 @@ const prototypeVehicle = new VehiclePrototype(newProto);
 
 const clonedVehicle = prototypeVehicle.clone();
 clonedVehicle.info();
+
+/*
+function Cat(name, color) {
+  this.name = name;
+  this.color = color;
+}
+
+function newCat(constructor, ...args) {
+  const obj = {};
+  Object.setPrototypeOf(obj, constructor.prototype);
+
+  return constructor.apply(Cat, args) || obj;
+}
+
+const cat = newCat(Cat, 'red', 'sam');
+    console.log(cat);
+*/
