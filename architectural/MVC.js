@@ -1,33 +1,12 @@
 /*
-The MVC pattern stands for Model-View-Controller pattern. It is an architectural pattern that is used to organize the code 
-of your application. It consists of three components:
+Model-View-Controller.
 
-Model:
-
-The model component manages the data that the application may require.
-
-View:
-
-The view is used for the visual representation of the current model. It renders data on the user’s side.
-
-Controller:
-
-The controller connects the model and the view components.
-
-The model is independent of the view; meaning, it is not concerned with the user interface and how the information 
-is displayed on the user side. The view, on the other hand, is an observer of the model. Whenever the model gets 
-modified (data is updated) it notifies its observer (the view) which then reacts accordingly.
-
-As mentioned view is the visual representation of the model. Whenever it is notified of a change in the model, 
-the view updates accordingly. As the view layer is what the users get to see, this is also the layer they get to
- interact with such as editing or updating attribute values.
-
-The controller is the connection between the model and the view. The two do not interact with each other directly. 
-The controller takes input from the user such as a click or keypress which updates the view side and then updates the
-model accordingly. It can sometimes update the view directly as well.
+Model: manages the data in application.
+View: the visual representation of the current model.
+Controller: connects the model and the view components.
  */
 
-class EmployeeModel {
+class Model {
   constructor(name, designation, id) {
     this.name = name;
     this.designation = designation;
@@ -46,7 +25,7 @@ class EmployeeModel {
   }
 }
 
-class EmployeeView {
+class View {
   constructor() {
     this.controller = null;
   }
@@ -68,7 +47,7 @@ class EmployeeView {
   }
 }
 
-class EmployeeController {
+class Controller {
   constructor() {
     this.model = null;
     this.view = null;
@@ -102,14 +81,13 @@ class EmployeeController {
     console.log('\n');
   }
   hire(name, designation) {
-    this.empList.push(
-      new EmployeeModel(name, designation, this.empList.length)
-    );
+    this.empList.push(new Model(name, designation, this.empList.length));
     this.updateView();
   }
 }
-var view = new EmployeeView();
-var controller = new EmployeeController();
+
+var view = new View();
+var controller = new Controller();
 view.registerWith(controller);
 console.log('Hiring a new employee Rachel');
 view.hire('Rachel', 'Team Lead');

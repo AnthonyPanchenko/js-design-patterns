@@ -1,24 +1,9 @@
 /*
-The MVP pattern stands for Model-View-Presenter. It is derived from the MVC pattern, 
-which focuses on the user interface. MVP is focused on improving the presentation logic.
-
-It consists of three components:
-
-Model: provides the data that the application requires, and we want to display in the view.
-
-View: to display the data from the model, it passes the user actions/commands to the presenter to act upon that data.
-
-Presenter: acts as the middle man between the model and the view. Retrieves data from the model 
-manipulates it, and returns it to view for display. It also reacts to the user’s interaction with the view.
+Model-View-Presenter. MVP is focused on improving the presentation logic.
 
 ---------the difference between MVP and MVC------------
 In the MVC pattern, the controller acts as the mediator between the model and the view, and it can 
 share multiple views. The view can also communicate directly with the model by observing it for changes and updating itself accordingly.
-
-In the MVP pattern, the presenter acts as the mediator between the model and the view. It reacts 
-to user actions; retrieves and manipulates model data, and returns it to the view for display. 
-Hence, the model and the view are more separate in this pattern. The presenter also has a one to 
-one mapping with the view. If the view is complex, it can use multiple presenters.
 */
 
 class Model {
