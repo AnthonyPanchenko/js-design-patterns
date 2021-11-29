@@ -1,6 +1,8 @@
 // The adapter pattern allows those classes to work together that couldn’t because of having different interfaces (properties/methods of an object).
 // It translates the interface for a class to make it compatible with another class.
 
+// 111111
+
 class OldCalc {
   operations(t1, t2, operation) {
     switch (operation) {
