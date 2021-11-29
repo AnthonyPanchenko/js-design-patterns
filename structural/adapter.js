@@ -26,6 +26,8 @@ class NewCalc {
   }
 }
 
+/// 111111
+
 class CalcAdapter {
   constructor() {
     this.calc = new NewCalc();
